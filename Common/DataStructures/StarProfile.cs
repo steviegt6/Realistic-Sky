@@ -43,7 +43,7 @@ namespace RealisticSky.Common.DataStructures
             if (temperature > TemperatureMax)
                 temperature = TemperatureMax;
 
-            return TemperatureToColorGradient.GetColor(temperature);
+            return TemperatureToColorGradient.GetColor(temperature) * 3.5f;
         }
     }
 }
