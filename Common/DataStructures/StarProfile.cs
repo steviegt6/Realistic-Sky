@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Utilities;
 
@@ -31,7 +32,7 @@ namespace RealisticSky.Common.DataStructures
             int segment = (int)(normal * (Segments.Length - 1));
             float t = (normal - segment / (float)(Segments.Length - 1)) * (Segments.Length - 1);
             Temperature = (int)MathHelper.Lerp(Segments[segment], Segments[segment + 1], t);
-            Scale = normal + 0.5f;
+            Scale = MathHelper.Lerp(2f, 4.3f, MathF.Pow(normal, 9f));
         }
 
         public static Color TemperatureToColor(int temperature)
